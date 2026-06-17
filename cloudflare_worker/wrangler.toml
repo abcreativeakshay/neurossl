@@ -1,0 +1,12 @@
+name = "neuro-ssl-worker"
+main = "src/index.js"
+compatibility_date = "2024-03-01"
+
+routes = [
+  { pattern = "neurossl.peakso.in", custom_domain = true }
+]
+
+[vars]
+SPACE_EMBED_URL = "https://abcreativeakshay-neuro-ssl.hf.space"
+APP_TITLE = "NeuroSSL — Dementia Classifier"
+APP_DESCRIPTION = "Self-Supervised ViT for MRI-based Dementia Classification"

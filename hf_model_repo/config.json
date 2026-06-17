@@ -1,0 +1,40 @@
+{
+  "model_type": "MultiScaleViT2D + SecondOrderClassifier",
+  "architecture": {
+    "encoder": "MultiScaleViT2DEncoder",
+    "classifier": "SecondOrderClassifier",
+    "img_size": [224, 224],
+    "patch_size": [16, 16],
+    "embed_dim": 384,
+    "depth": 12,
+    "num_heads": 6,
+    "mlp_ratio": 4.0,
+    "drop_path_rate": 0.0,
+    "num_classes": 2,
+    "dropout": 0.3,
+    "use_second_order": true
+  },
+  "calibration": {
+    "method": "platt_scaling",
+    "temperature": 1.6995
+  },
+  "uncertainty": {
+    "method": "mc_dropout",
+    "default_samples": 10
+  },
+  "preprocessing": {
+    "input_channels": 1,
+    "input_size": [224, 224],
+    "normalization": "z_score",
+    "colormode": "grayscale"
+  },
+  "training": {
+    "pretrain_data": ["OASIS", "IXI"],
+    "finetune_data": ["OASIS"],
+    "pretrain_method": "self_supervised",
+    "finetune_strategy": "5_fold_cross_validation"
+  },
+  "framework": "pytorch",
+  "author": "Akshay Biradar",
+  "license": "MIT"
+}
